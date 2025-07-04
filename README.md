@@ -5,22 +5,19 @@ A full-stack, real-time multiplayer dice game built with Next.js, TypeScript, an
 [![Live Demo](https://img.shields.io/badge/🚀-Live_Demo-4CAF50?style=for-the-badge)](https://real-time-dice-game.vercel.app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
+[Watch Demo Video](https://github.com/user-attachments/assets/5d2df0b4-bad5-4cc2-8136-d7afd5b7c58d)
 
 ## 📱 Real-time Cross-Device Sync
 
 Experience seamless gameplay with real-time balance updates across all your logged-in devices. Bet on your mobile, and watch your balance instantly reflect on your desktop, without needing to refresh!
 
-[Watch Demo Video](https://github.com/user-attachments/assets/5d2df0b4-bad5-4cc2-8136-d7afd5b7c58d)
-
 ### Desktop View
+
 [Desktop Gameplay Video](https://github.com/user-attachments/assets/9e9be89c-cfed-4de3-ad64-0ce2a192a4bf)
 
 ### Mobile View
+
 [Mobile Gameplay Video](https://github.com/user-attachments/assets/af6e02c5-9b8e-4ff7-9797-114623943abe)
-
-
-
-
 
 ## ✨ Features
 
