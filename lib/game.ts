@@ -1,12 +1,12 @@
 import { createHmac, createHash } from "crypto"
 
-const SERVER_SECRET = process.env.SERVER_SECRET;
+const SERVER_SECRET = process.env.SERVER_SECRET
 
 if (!SERVER_SECRET) {
-  throw new Error("SERVER_SECRET is not defined in environment variables.");
+  throw new Error("SERVER_SECRET is not defined in environment variables.")
 }
 
-const TYPED_SERVER_SECRET: string = SERVER_SECRET;
+const TYPED_SERVER_SECRET: string = SERVER_SECRET
 
 export function verifyBet(bet: {
   id: string
@@ -15,21 +15,21 @@ export function verifyBet(bet: {
   serverSeedHash: string
   clientSeed: string
 }): boolean {
-  if (!bet.id || typeof bet.id !== 'string' || bet.id.trim() === '') {
+  if (!bet.id || typeof bet.id !== "string" || bet.id.trim() === "") {
     console.error("Invalid bet ID")
     return false
   }
-  const rehashedServerSeed = createHash('sha256')
+  const rehashedServerSeed = createHash("sha256")
     .update(bet.serverSeed)
-    .digest('hex')
+    .digest("hex")
   if (rehashedServerSeed !== bet.serverSeedHash) {
     console.error("Server seed hash mismatch!")
     return false
   }
 
-  const hmac = createHmac('sha512', bet.serverSeed)
+  const hmac = createHmac("sha512", bet.serverSeed)
   hmac.update(bet.clientSeed)
-  const resultHash = hmac.digest('hex')
+  const resultHash = hmac.digest("hex")
   const decimal = parseInt(resultHash.substring(0, 5), 16)
   const roll = Math.floor((decimal % 10000) / 100) + 1
 
@@ -46,7 +46,7 @@ export function runProvablyFairGame(
     .digest("hex")
   const serverSeedHash = createHash("sha256").update(serverSeed).digest("hex")
 
-  const hmac = createHmac("sha512", TYPED_SERVER_SECRET)
+  const hmac = createHmac("sha512", serverSeed)
   hmac.update(clientSeed)
   const resultHash = hmac.digest("hex")
 
